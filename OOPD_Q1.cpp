@@ -26,7 +26,7 @@ public:
         cout << "Room: " << room << endl;
         cout << "Designation: " << designation << endl;
         cout << "Department: " << department << endl;
-        cout << "-----------------------------------" << endl;
+        cout << "-------------------------------------" << endl;
     }
 
     string getName() const { return name; }
@@ -216,6 +216,7 @@ public:
         file.close();
     }
 };
+
 
 int main() {
     const char* filePath = "C:\\Users\\Chaitanya\\Downloads\\Assignment_2\\IIITD(A).csv";
