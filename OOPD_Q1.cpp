@@ -134,3 +134,97 @@ public:
     }
 };
 
+class AdminManager {
+private:
+    const char* filePath;
+
+public:
+    AdminManager(const char* path) : filePath(path) {}
+
+
+    void fetchDetailsByName(const string& searchName) {
+        ifstream file(filePath);
+        if (!file) {
+            cout << "Unable to open file: " << filePath << endl;
+            return;
+        }
+
+        char line[MAX_LINE_LENGTH];
+
+        file.getline(line, MAX_LINE_LENGTH);
+
+        bool found = false;
+
+
+        while (file.getline(line, MAX_LINE_LENGTH)) {
+            char* token = strtok(line, ",");
+            string name, email, phone, room, designation, department;
+
+
+            if (token) name = token;
+            token = strtok(NULL, ",");
+            if (token) email = token;
+            token = strtok(NULL, ",");
+            if (token) phone = token;
+            token = strtok(NULL, ",");
+            if (token) room = token;
+            token = strtok(NULL, ",");
+            if (token) designation = token;
+            token = strtok(NULL, ",");
+            if (token) department = token;
+
+            if (name == searchName) {
+                if (designation.find("Registrar") != string::npos) {
+                    Registrar reg(name, email, phone, room, designation, department);
+                    reg.displayInfo();
+                } else if (designation.find("Dean") != string::npos) {
+                    Dean dean(name, email, phone, room, designation, department);
+                    dean.displayInfo();
+                } else if (designation.find("Associate Dean") != string::npos) {
+                    AssociateDean assocDean(name, email, phone, room, designation, department);
+                    assocDean.displayInfo();
+                } else {
+                    if (department == "Academics") {
+                        Academics academics(name, email, phone, room, designation, department);
+                        academics.displayInfo();
+                    } else if (department == "IRD") {
+                        IRD ird(name, email, phone, room, designation, department);
+                        ird.displayInfo();
+                    } else if (department == "Library") {
+                        Library library(name, email, phone, room, designation, department);
+                        library.displayInfo();
+                    } else if (department == "Store and Purchase") {
+                        StoreAndPurchase store(name, email, phone, room, designation, department);
+                        store.displayInfo();
+                    } else if (department == "Student Affairs") {
+                        StudentAffairs studentAffairs(name, email, phone, room, designation, department);
+                        studentAffairs.displayInfo();
+                    } else {
+                        Admin admin(name, email, phone, room, designation, department);
+                        admin.displayInfo();
+                    }
+                }
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            cout << "No records found for name: " << searchName << endl;
+        }
+
+        file.close();
+    }
+};
+
+int main() {
+    const char* filePath = "C:\\Users\\Chaitanya\\Downloads\\Assignment_2\\IIITD(A).csv";
+    AdminManager adminManager(filePath);
+
+    string searchName;
+    cout << "Enter the name : ";
+    getline(cin, searchName);
+    adminManager.fetchDetailsByName(searchName);
+
+    return 0;
+}
