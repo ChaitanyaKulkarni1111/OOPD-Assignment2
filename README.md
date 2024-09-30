@@ -9,6 +9,9 @@ This program models the administrative structure of IIIT-Delhi by creating class
 ## Question 2
 This program models the structure of academic departments at IIIT-Delhi, where each department consists of a head and four additional faculty members. It creates classes to represent each department and the faculty members, including their roles and responsibilities. The program provides functionality to fetch room numbers and telephone numbers for each faculty member, facilitating easy access to contact information within the academic structure.
 
+## Question 3
+- Developed an escalation matrix to handle complaints, allowing issues unresolved for more than three days to be escalated to higher authorities based on the seniority of positions within the departments.
+
 ```bash
 # Compile the source file for Question1
 g++ -c OOPD_Q1.cpp
@@ -23,7 +26,7 @@ g++ -O3 -o optimize1 OOPD_Q1.o
 g++ -c OOPD_Q2.cpp
 
 # Generate the debugging binary
-g++ -g -o debug2 OOPD_Q2.o
+g++ -g -o debug3 OOPD_Q2.o
 
 # Generate the optimized binary
-g++ -O3 -o optimize2 OOPD_Q2.o
+g++ -O3 -o optimize3 OOPD_Q2.o
