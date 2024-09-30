@@ -6,6 +6,9 @@
 ## Question 1
 This program models the administrative structure of IIIT-Delhi by creating classes for the departments and positions. It includes five administrative departments: IRD, Academics, Student Affairs, Store & Purchase, and Library. The program models each department head and their respective positions, such as deans and associate deans. The registrar heads the overall administrative structure. It also provides functionality to fetch room numbers, telephone numbers, and email addresses when given the name of a person.
 
+## Question 2
+This program models the structure of academic departments at IIIT-Delhi, where each department consists of a head and four additional faculty members. It creates classes to represent each department and the faculty members, including their roles and responsibilities. The program provides functionality to fetch room numbers and telephone numbers for each faculty member, facilitating easy access to contact information within the academic structure.
+
 ```bash
 # Compile the source file for Question1
 g++ -c OOPD_Q1.cpp
@@ -15,3 +18,12 @@ g++ -g -o debug1 OOPD_Q1.o
 
 # Generate the optimized binary
 g++ -O3 -o optimize1 OOPD_Q1.o
+
+# Compile the source file for Question2
+g++ -c OOPD_Q2.cpp
+
+# Generate the debugging binary
+g++ -g -o debug2 OOPD_Q2.o
+
+# Generate the optimized binary
+g++ -O3 -o optimize2 OOPD_Q2.o
